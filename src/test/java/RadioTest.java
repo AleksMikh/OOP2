@@ -6,6 +6,14 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     @Test
+    public void setStation() {
+        Radio rad = new Radio(20);
+        int expected = 20;
+        int actual = rad.getMaxStation();
+        Assertions.assertEquals(expected, actual);
+    }
+
+    @Test
     public void setCurrentStationZero() {
         Radio rad = new Radio();
         rad.setCurrentStation(0);
