@@ -1,17 +1,14 @@
 public class Radio {
     private int currentStation;
     private int volume;
-    private int maxStation = 10;
-    private int minStation = 0;
-    private int minVolume = 0;
-    private int maxVolume = 100;
+    private int allStations = 10;
 
-    public Radio(int maxStation) {
-        this.maxStation = maxStation;
+    public int getAllStations() {
+        return allStations;
     }
 
-    public int getMaxStation() {
-        return maxStation;
+    public Radio(int allStations) {
+        this.allStations = allStations;
     }
 
     public Radio() {
@@ -22,26 +19,26 @@ public class Radio {
     }
 
     public void setCurrentStation(int newCurrentStation) {
-        if (newCurrentStation < minStation) {
+        if (newCurrentStation < 0) {
             return;
         }
-        if (newCurrentStation > maxStation-1) {
+        if (newCurrentStation > allStations - 1) {
             return;
         }
         currentStation = newCurrentStation;
     }
 
     public void next() {
-        if (currentStation == maxStation-1) {
-            currentStation = minStation;
+        if (currentStation == allStations - 1) {
+            currentStation = 0;
         } else {
             currentStation++;
         }
     }
 
     public void prev() {
-        if (currentStation == minStation) {
-            currentStation = maxStation-1;
+        if (currentStation == 0) {
+            currentStation = allStations - 1;
         } else {
             currentStation--;
         }
@@ -52,23 +49,23 @@ public class Radio {
     }
 
     public void setVolume(int newVolume) {
-        if (newVolume < minVolume) {
+        if (newVolume < 0) {
             return;
         }
-        if (newVolume > maxVolume) {
+        if (newVolume > 100) {
             return;
         }
         volume = newVolume;
     }
 
     public void upVolume() {
-        if (volume < maxVolume) {
+        if (volume < 100) {
             volume++;
         }
     }
 
     public void downVolume() {
-        if (volume > minVolume) {
+        if (volume > 0) {
             volume--;
         }
     }

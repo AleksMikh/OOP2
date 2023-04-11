@@ -4,14 +4,21 @@ import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
+    @Test
+    public void constructorWithIndicators() {
+        Radio rad = new Radio(30);
+        rad.setCurrentStation(29);
+
+        Assertions.assertEquals(30, rad.getAllStations());
+        Assertions.assertEquals(29, rad.getCurrentStation());
+    }
 
     @Test
-    public void setStation() {
-        Radio rad = new Radio(20);
-        int expected = 20;
-        int actual = rad.getMaxStation();
-        Assertions.assertEquals(expected, actual);
+    public void constructorWithoutIndicators() {
+        Radio rad = new Radio();
+        Assertions.assertEquals(10, rad.getAllStations());
     }
+
 
     @Test
     public void setCurrentStationZero() {
